@@ -1,6 +1,7 @@
 import { DynamicModule, FactoryProvider, Module, Scope } from '@nestjs/common';
 import { FeatureToggleModule } from '../feature-toggle/feature-toggle.module';
 import { BaseFeatureToggleService } from '../feature-toggle/feature-toggle.service';
+import { SpaceTimeFactoryController } from './space-time-factory.controller';
 import {
   EinsteiniumService,
   NewtonianService,
@@ -30,7 +31,7 @@ export class SpaceTimeFactoryModule {
       module: SpaceTimeFactoryModule,
       imports: [FeatureToggleModule],
       providers: [spaceTimeFactoryService],
-      controllers: [],
+      controllers: [SpaceTimeFactoryController],
     };
   }
 }
