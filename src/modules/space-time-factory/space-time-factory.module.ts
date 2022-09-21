@@ -1,13 +1,13 @@
 import { DynamicModule, FactoryProvider, Module, Scope } from '@nestjs/common';
 import { FeatureToggleModule } from '../feature-toggle/feature-toggle.module';
 import { BaseFeatureToggleService } from '../feature-toggle/feature-toggle.service';
-import { EinsteiniumService, NewtonianService, SpaceTimeService } from './space-time-factory.service';
+import { EinsteiniumService, NewtonianService, BaseSpaceTimeService as BaseSpaceTimeService } from './space-time-factory.service';
 
 @Module({})
 export class SpaceTimeFactoryModule {
   static registerAsync(): DynamicModule {
     const spaceTimeFactoryService: FactoryProvider = {
-      provide: SpaceTimeService,
+      provide: BaseSpaceTimeService,
       useFactory: async (featureToggle: BaseFeatureToggleService) => {
         const isEinsteiniumTheoryEnabled =
           await featureToggle.isEinsteiniumTheoryEnabled();

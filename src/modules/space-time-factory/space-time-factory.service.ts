@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export abstract class SpaceTimeService {
+export abstract class BaseSpaceTimeService {
   abstract getSpaceTimeInfo(): string
 }
 
 @Injectable()
-export class NewtonianService extends SpaceTimeService {
+export class EinsteiniumService extends BaseSpaceTimeService {
   getSpaceTimeInfo(): string {
-    return "Space is relative but time is absolute"
+    return "Both space and time are relative"
   }
 }
 
 @Injectable()
-export class EinsteiniumService extends SpaceTimeService {
+export class NewtonianService extends BaseSpaceTimeService {
   getSpaceTimeInfo(): string {
-    return "Both space and time are relative"
+    return "Space is relative but time is absolute"
   }
 }
